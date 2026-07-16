@@ -31,6 +31,8 @@ PHP 模板无需编译。CSS 和 JavaScript 的压缩仅用于发布。
 - `php -l functions.php`：快速检查主题主集成文件。
 - `cd tools && npm run build`：仅发布时生成压缩资源。
 - `cd tools && npm run check`：检查浏览器兼容基线和压缩产物一致性。
+- `cd tools && npm run css:audit`：报告可能未使用的 CSS，不直接修改源文件。
+- `cd tools && npm run package`：自动构建并输出 `dist/tamshen-版本号.zip`。
 
 在 Typecho 安装根目录运行 `php -S 127.0.0.1:8000` 启动本地服务。随后在 Typecho 后台启用 `tamshen`，访问 `http://127.0.0.1:8000`。
 
@@ -46,7 +48,7 @@ PHP 模板无需编译。CSS 和 JavaScript 的压缩仅用于发布。
 
 ## 界面与图标
 
-新增或替换界面图标时，优先从 [Carbon Icons](https://icones.js.org/collection/carbon) 选择风格一致的图标，并复用 `static/img/` 中已有资源。图标文件名使用 kebab-case；不要为同一用途重复引入近似图标。
+新增或替换界面图标时，优先从 [Carbon Icons](https://icones.js.org/collection/carbon) 选择风格一致的图标，并复用 `function/icons.php` 的图标输出方法。不要为同一用途重复引入近似图标。
 
 ## 测试与验收
 

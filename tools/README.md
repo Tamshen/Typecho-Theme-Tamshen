@@ -15,13 +15,16 @@ Generate minified files only when preparing a release:
 ```sh
 cd tools
 npm install
-npm run build
+npm run package
 npm run check
 ```
 
 - `npm run build` generates `static/js/theme.min.js` and `static/css/style.min.css`.
 - `npm run css:audit` reports potentially unused selectors without modifying source CSS.
 - `npm run check` reports the JavaScript and CSS browser baseline, rejects critical unsupported CSS, and fails when generated files are stale.
+- `npm run package` runs the build and creates `dist/tamshen-<version>.zip`. The version is read from `index.php`.
+
+The ZIP contains a `tamshen/` top-level directory and excludes `.git`, `dist`, `tools`, `AGENTS.md`, `node_modules`, and system metadata files.
 
 The theme loads minified files when they exist and falls back to source files otherwise.
 
